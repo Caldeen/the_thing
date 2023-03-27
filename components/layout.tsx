@@ -14,7 +14,8 @@ const Layout= ({ children }:any) => {
             <Box >
             <AppBar component='nav' position='static'>
             <Toolbar>
-                <Button id='but1'href='/'  color = 'inherit' >Home</Button>
+                <Button href='/'  color = 'inherit' >Home</Button>
+                <Button href='/login' color='inherit'>Login</Button>
                 <div style={{flexGrow:3}}></div>
                 <Button href='/armory' color='inherit'>Armory</Button>
             </Toolbar>
