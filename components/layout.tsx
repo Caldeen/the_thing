@@ -1,18 +1,16 @@
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
-import Container from "@mui/material/Container"
-import Link from "@mui/material/Link"
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
-import { AppProps } from "next/app"
-import { useEffect, useLayoutEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import Account from "./account"
 
 
 const Layout= ({ children }:any) => {
     const [loggedUser, setLoggedUser] = useState('')
     // probably wrong
-    useLayoutEffect(() => {
+    useEffect(() => {
         setLoggedUser(localStorage.getItem('name') as string)
     }, [])
     const handleLogoutClick = () => {
@@ -27,6 +25,7 @@ const Layout= ({ children }:any) => {
             <AppBar component='nav' position='static'>
             <Toolbar sx={{display:'flex'}}>
                 <Button href='/'  color = 'inherit' >Home</Button>
+                <Account user={loggedUser}></Account>
                 {loggedUser? <>
                     <Typography>hi {loggedUser}</Typography>
                     <Button onClick={handleLogoutClick} color="inherit">Logout</Button>
@@ -41,5 +40,6 @@ const Layout= ({ children }:any) => {
         </>
     )
     }
+
 
 export default Layout
