@@ -9,7 +9,6 @@ import Account from "./account"
 
 const Layout= ({ children }:any) => {
     const [loggedUser, setLoggedUser] = useState('')
-    // probably wrong
     useEffect(() => {
         setLoggedUser(localStorage.getItem('name') as string)
     }, [])
@@ -25,12 +24,7 @@ const Layout= ({ children }:any) => {
             <AppBar component='nav' position='static'>
             <Toolbar sx={{display:'flex'}}>
                 <Button href='/'  color = 'inherit' >Home</Button>
-                <Account user={loggedUser}></Account>
-                {loggedUser? <>
-                    <Typography>hi {loggedUser}</Typography>
-                    <Button onClick={handleLogoutClick} color="inherit">Logout</Button>
-                </>
-                :<Button href='/login' color='inherit'>Login</Button>}
+                <Account user={loggedUser} handleLogoutClick={handleLogoutClick}></Account>
                 <div style={{flex:1}}></div>
                 <Button href='/armory' color='inherit'>Diablo 4 Aspects</Button>
             </Toolbar>
