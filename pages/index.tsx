@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
-const Home = () => {
+const Home = ({title}) => {
   const txt =`Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique unde
   fugit veniam eius, perspiciatis sunt? Corporis qui ducimus quibusdam,
   aliquam dolore excepturi quae. Distinctio enim at eligendi perferendis in
@@ -39,8 +39,15 @@ const Home = () => {
   dolores sunt inventore perferendis, aut sapiente modi nesciunt.`
   return (
       <>
+      <h1>{title}</h1>
       <Typography>{txt}</Typography>
       </>
   )
+}
+export async function getStaticProps(context) {
+  return {
+    props: {title:'Home'
+    },
+  }
 }
 export default Home

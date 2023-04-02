@@ -35,7 +35,6 @@ const Armory = () => {
     }
     return (
         <Container>
-            <LoginComponent />
             <Box sx={{display:'flex' ,alignItems:'flex-start'}}>
                 <div >
                     <InputLabel>Class</InputLabel>
@@ -54,13 +53,13 @@ const Armory = () => {
                     </Select>
                 </div>
                 <Box ml={2} sx={{display:'flex',flexDirection:'column',alignContent:'center',alignItems:'center'}}>
-                    <InputLabel >   Roll items   </InputLabel>
+                    <InputLabel >   Roll {Number(sliderValue)} items   </InputLabel>
                     <Slider sx={{minWidth:150}} valueLabelDisplay="auto" min={1} max={50} onChange={(event,newval)=>setSliderValue(newval)}></Slider>
                 </Box>
             </Box>
             <Button sx={{ mt: 0.5,mb:0.5 }} variant="outlined" onClick={handleRollClick}>Press me to roll</Button>
             <Divider orientation="horizontal" variant="middle" ><Chip sx={{fontSize:15}} color='warning' label='Legendary Aspects'></Chip></Divider>
-            <br></br>
+            <br ></br>
             <Box sx={{ display: 'inline-flex', alignItems: 'stretch', flexWrap: 'wrap',justifyContent:'center' }}>
                 {items[0] !== null ? items.map(item =>
                     <Aspect key={item.leg_name} item={item} deletionHandler={handleDeletion}></Aspect>) : ''}
