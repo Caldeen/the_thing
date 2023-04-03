@@ -39,13 +39,11 @@ const DescFormatter = ({ desc, values }) => {
     return <>
         {Object.keys(nodes).map((key) => {
             return nodes[key].nodeName === 'SPAN' ? <Typography key={key} component={'span'} color={nodes[key].attributes.style.value}>{nodes[key].innerHTML}</Typography> :
-                <Typography key={key} component={'text'}>{nodes[key].data}</Typography>
+                <Typography key={key} component={'span'}>{nodes[key].data}</Typography>
         })}
     </>
 }
 const Aspect = ({ item, deletionHandler }) => {
-
-    
     return <>
         <Card sx={{ mr: 1, mb: 1, maxWidth: 250, border: '2px solid', display: 'grid' }}>
             <CardContent sx={{ overflowWrap: 'anywhere' }}>

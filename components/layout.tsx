@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
 import { useEffect, useState } from "react"
 import Account from "./account"
+import { Divider } from "@mui/material"
 
 
 const Layout= ({ children }:any) => {
@@ -25,7 +26,9 @@ const Layout= ({ children }:any) => {
             <Toolbar sx={{display:'flex'}}>
                 <Button href='/'  color = 'inherit' >Home</Button>
                 <Account user={loggedUser} handleLogoutClick={handleLogoutClick}></Account>
-                <div style={{flex:1}}></div>
+                <div style={{flex:2}}></div>
+                <Button color="inherit">DocsMaybeIdk</Button>
+                <Divider orientation="vertical" flexItem sx={{margin:2}}></Divider>
                 <Button href='/armory' color='inherit'>Diablo 4 Aspects</Button>
             </Toolbar>
             </AppBar>

@@ -4,7 +4,7 @@ import { useEffect } from "react"
 
 const fs = require('fs')
 const path = require('path')
-const file = path.join("pages/api/D4.json")
+const file = path.join("public/D4.json")
 const content = fs.readFileSync(file, 'utf8')
 const parsedJson = JSON.parse(content)
 

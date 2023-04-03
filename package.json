@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server --watch db.json --port 3001"
+    "deploy": "next build && next export"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",

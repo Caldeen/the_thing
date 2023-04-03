@@ -1,4 +1,4 @@
-import { Box, ListItem, ListItemButton, Stack, Typography } from "@mui/material"
+import { Box, ClickAwayListener, ListItem, ListItemButton, Stack, Typography } from "@mui/material"
 import Button from "@mui/material/Button"
 import Fade from "@mui/material/Fade"
 import MenuItem from "@mui/material/MenuItem"
@@ -7,9 +7,6 @@ import Paper from "@mui/material/Paper"
 import Popper from "@mui/material/Popper"
 import TaskAltSharpIcon from '@mui/icons-material/TaskAltSharp';
 import { useRef, useState } from "react"
-import { PhotoSizeSelectSmall } from "@mui/icons-material"
-import Link from "next/link"
-
 
 const Account = ({ user, handleLogoutClick }) => {
     const [openPopper, setOpenPopper] = useState(false)
@@ -18,28 +15,29 @@ const Account = ({ user, handleLogoutClick }) => {
     const popper = (...props: JSX.Element[]) => {
         return (
             <Popper
-                open={openPopper}
-                anchorEl={anchorRef}
-                placement="auto"
-                transition
-            >
-                {({ TransitionProps }) => (
-                    <Fade {...TransitionProps}>
-                        <Paper  >
-                            <MenuList autoFocusItem={openPopper}>
-                                {props}
-                            </MenuList>
-                        </Paper>
-                    </Fade>
-                )}
-            </Popper>
+                    open={openPopper}
+                    anchorEl={anchorRef}
+                    placement="auto"
+                    transition
+                >
+                    {({ TransitionProps }) => (
+                        <Fade {...TransitionProps}>
+                            <Paper  >
+                            <ClickAwayListener onClickAway={() => setOpenPopper(false)}>
+                                <MenuList autoFocusItem={openPopper}>
+                                    {props}
+                                </MenuList>
+                    </ClickAwayListener>
+                            </Paper>
+                        </Fade>
+                    )}
+                </Popper>
         )
     }
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorRef(event.currentTarget)
         setOpenPopper(!openPopper)
         console.log(user);
-
     }
 
     return (
