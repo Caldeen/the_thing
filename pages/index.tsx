@@ -1,5 +1,5 @@
 
-import { Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import { Inter } from 'next/font/google'
 import React from 'react'
 
@@ -38,10 +38,10 @@ const Home = ({title}) => {
   Voluptates perspiciatis, in pariatur impedit, nam facilis libero dolorem
   dolores sunt inventore perferendis, aut sapiente modi nesciunt.`
   return (
-      <>
-      <h1>{title}</h1>
+      <Container>
+        <h1>{title}</h1>
       <Typography>{txt}</Typography>
-      </>
+      </Container>
   )
 }
 export async function getStaticProps(context) {

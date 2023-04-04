@@ -11,7 +11,7 @@ const RegisterComponent = () => {
         const data = await resp.json()
         localStorage.setItem('token',resp.headers.get('authorization') as string)
         localStorage.setItem('name',data.login)
-        resp.status === 201 ? window.location.href = '/' : alert('Wrong credentials')
+        resp.status === 409 ? window.location.href = '/' : alert('Username already exists')
     }
 
     return(

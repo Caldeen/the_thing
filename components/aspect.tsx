@@ -41,11 +41,12 @@ const DescFormatter = ({ desc, values }) => {
             return nodes[key].nodeName === 'SPAN' ? <Typography key={key} component={'span'} color={nodes[key].attributes.style.value}>{nodes[key].innerHTML}</Typography> :
                 <Typography key={key} component={'span'}>{nodes[key].data}</Typography>
         })}
+        <div style={{ minHeight: '100%' }}></div>
     </>
 }
 const Aspect = ({ item, deletionHandler }) => {
     return <>
-        <Card sx={{ mr: 1, mb: 1, maxWidth: 250, border: '2px solid', display: 'grid' }}>
+        <Card sx={{ mr: 1, mb: 1, maxWidth:240, border: '2px solid', display: 'grid' }}>
             <CardContent sx={{ overflowWrap: 'anywhere' }}>
                 <Typography variant='h6' gutterBottom color="text.primary" ><b>{String(item.leg_name).replace(/^.* /,'')}</b></Typography>
                 <Typography variant='subtitle2' gutterBottom color="GrayText" >{String(item.leg_name).match(/_.*_/)[0].replace(/_/g, ' ').toUpperCase()}</Typography>

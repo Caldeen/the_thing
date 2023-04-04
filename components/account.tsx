@@ -19,6 +19,7 @@ const Account = ({ user, handleLogoutClick }) => {
                     anchorEl={anchorRef}
                     placement="auto"
                     transition
+                    disablePortal
                 >
                     {({ TransitionProps }) => (
                         <Fade {...TransitionProps}>
