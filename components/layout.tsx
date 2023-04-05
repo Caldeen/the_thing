@@ -37,7 +37,7 @@ const Layout = ({ children }: any) => {
             <Toolbar sx={{mb:2}}/>
             </Box>
             <main >{children}</main>
-            <Box flex={1} />
+            <Box flex={2} />
             <Footer ></Footer>
         </>
     )
