@@ -29,9 +29,13 @@ const Layout = ({ children }: any) => {
                         <Button href='/' color='inherit' >Home</Button>
                         <Account user={loggedUser} handleLogoutClick={handleLogoutClick}></Account>
                         <div style={{ flex: 2 }}></div>
-                        <Button href="docs" color="inherit">API Docs</Button>
-                        <Divider orientation="vertical" flexItem sx={{ margin: 2 }}></Divider>
-                        <Button href='/armory' color='inherit'>Diablo 4 Aspects</Button>
+                        <Box component={'div'} sx={{display:['none','flex','flex','flex','flex','flex']}}>
+                            <Button href="/projects" color="inherit">Projects</Button>
+                            <Divider orientation="vertical" flexItem sx={{ margin: 2 }}></Divider>
+                            <Button href="/docs" color="inherit">API Docs</Button>
+                            <Divider orientation="vertical" flexItem sx={{ margin: 2 }}></Divider>
+                            <Button href='/armory' color='inherit'>Diablo 4 Aspects</Button>
+                        </Box>
                     </Toolbar>
                 </AppBar>
             <Toolbar sx={{mb:2}}/>

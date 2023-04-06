@@ -17,7 +17,7 @@ const LeftDrawer = () => {
                         <Toolbar />
                             <MenuList >
                                 <ListItemButton href="/docs" >Overview</ListItemButton>
-                                <ListItemButton>Account </ListItemButton>
+                                <ListItemButton href="/docs/account">Account </ListItemButton>
                                 <ListItemButton>Endpoints</ListItemButton>
                                 <ListItemButton>Errors</ListItemButton>
                         </MenuList>
