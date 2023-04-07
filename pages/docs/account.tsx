@@ -9,7 +9,7 @@ const Account = () => {
         <Box display={'flex'} >
             <LeftDrawer ></LeftDrawer>
             <Box sx={{ flexGrow: 1, p: 2 }}>
-                <Typography variant='h3'>Account</Typography>   
+                <Typography variant='h3'>Account</Typography>
                 <Typography id='User management' variant='h4'>User management</Typography>
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     The API can be currently used to register a user or log in a user. Succesful
@@ -24,21 +24,24 @@ const Account = () => {
                     <i>https://springbootbackend.fly.dev/register</i>
                     <br></br>
                     The request body should contain the following JSON object:
-                    <Box component={'div'} sx={{backgroundColor:'action.disabledBackground'}}>
-                        <code>
-                            <i>{`{`}</i>
-                            <br></br>
-                            <i>&emsp;"login": "your username"</i>
-                            <br></br>
-                            <i>&emsp;"password": "your password</i>
-                            <br></br>
-                            <i>{`}`}</i>
-                            <br></br>
-                        </code>
-                    </Box>
-                    The server will respond with a 200 OK status code, and a JSON object containing the following fields:
+                </Typography>
+                <Box component={'div'} sx={{ backgroundColor: 'action.disabledBackground' }}>
+                    <code>
+                        <i>{`{`}</i>
                         <br></br>
-                    <Box component={'div'} sx={{backgroundColor:'action.disabledBackground'}}>
+                        <i>&emsp;"login": "your username"</i>
+                        <br></br>
+                        <i>&emsp;"password": "your password</i>
+                        <br></br>
+                        <i>{`}`}</i>
+                        <br></br>
+                    </code>
+                </Box>
+                <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
+                    The server will respond with a 200 OK status code, and a JSON object containing the following fields:
+                </Typography>
+                <br></br>
+                <Box component={'div'} sx={{ backgroundColor: 'action.disabledBackground' }}>
                     <code>
                         <i>{`{`}</i>
                         <br></br>
@@ -49,7 +52,8 @@ const Account = () => {
                         <i>{`}`}</i>
                         <br></br>
                     </code>
-                    </Box>
+                </Box>
+                <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     The token will be in the response header.
                     The token will be used to access the API. It is valid for 10 minutes.
 
@@ -62,19 +66,21 @@ const Account = () => {
                     <i>https://springbootbackend.fly.dev/login</i>
                     <br></br>
                     The request body should contain the following JSON object:
+                </Typography>
+                <br></br>
+                <Box component={'div'} sx={{ backgroundColor: 'action.disabledBackground' }}>
+                    <code>
+                        <i>{`{`}</i>
                         <br></br>
-                        <Box component={'div'} sx={{backgroundColor:'action.disabledBackground'}}>
-                        <code>
-                            <i>{`{`}</i>
-                            <br></br>
-                            <i>&emsp;{`"login": "your username",`}</i>
-                            <br></br>
-                            <i>&emsp;{`"password": "your password"`}</i>
-                            <br></br>
-                            <i>{`}`}</i>
-                            <br></br>
-                        </code>
-                        </Box>
+                        <i>&emsp;{`"login": "your username",`}</i>
+                        <br></br>
+                        <i>&emsp;{`"password": "your password"`}</i>
+                        <br></br>
+                        <i>{`}`}</i>
+                        <br></br>
+                    </code>
+                </Box>
+                <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     The response will be the same as for the registration endpoint.
                 </Typography>
             </Box>
