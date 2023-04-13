@@ -4,7 +4,7 @@ const Projects = () => {
     return (
         <Container>
             <h1>Projects</h1>
-            <h3>My github is at <Link href ='https://github.com/Caldeen'>https://github.com/Caldeen</Link>. 
+            <h3>My github is <Link href ='https://github.com/Caldeen'>https://github.com/Caldeen</Link>. 
              The list below contains a selection of projects </h3>
             <ol >
                 <li>

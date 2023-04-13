@@ -29,9 +29,9 @@ const Account = () => {
                     <code>
                         <i>{`{`}</i>
                         <br></br>
-                        <i>&emsp;"login": "your username"</i>
+                        <i>&emsp;&quot;login&quot;: &quot;your username&quot;</i>
                         <br></br>
-                        <i>&emsp;"password": "your password</i>
+                        <i>&emsp;&quot;password&quot;: &quot;your password&quot;</i>
                         <br></br>
                         <i>{`}`}</i>
                         <br></br>
@@ -45,9 +45,9 @@ const Account = () => {
                     <code>
                         <i>{`{`}</i>
                         <br></br>
-                        <i>&emsp;{`"id": 123,`}</i>
+                        <i>&emsp;&quot;id&quot;: 123</i>
                         <br></br>
-                        <i>&emsp;{`"username": "your username",`}</i>
+                        <i>&emsp;&quot;username&quot;: &quot;your username&quot;</i>
                         <br></br>
                         <i>{`}`}</i>
                         <br></br>
@@ -72,9 +72,9 @@ const Account = () => {
                     <code>
                         <i>{`{`}</i>
                         <br></br>
-                        <i>&emsp;{`"login": "your username",`}</i>
+                        <i>&emsp;&quot;login&quot;: &quot;your username&quot;</i>
                         <br></br>
-                        <i>&emsp;{`"password": "your password"`}</i>
+                        <i>&emsp;&quot;password&quot;: &quot;your password&quot;</i>
                         <br></br>
                         <i>{`}`}</i>
                         <br></br>

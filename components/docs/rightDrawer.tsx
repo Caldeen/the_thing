@@ -8,7 +8,7 @@ const RightDrawer = ({subjects}:{subjects:string[]}) => {
     return (
         <>
                 <Drawer variant='permanent' anchor="right" sx={{width: drawerWidth,
-                    flexShrink:0,
+                    flexShrink:0,display: ['none', 'none', 'block', 'block', 'block', 'block'],
                     [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' }}}>
                     <Toolbar />
                     <List >
