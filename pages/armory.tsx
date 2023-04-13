@@ -35,7 +35,7 @@ const Armory = () => {
     }
     return (
         <Container>
-            <Box sx={{display:'flex' ,alignItems:'flex-start'}}>
+            <Box sx={{display:['block','flex','flex','flex','flex','flex'] ,alignItems:'flex-start'}}>
                 <div >
                     <InputLabel>Class</InputLabel>
                     <Select
@@ -52,7 +52,7 @@ const Armory = () => {
                         <MenuItem value={'Generic'}>Generic</MenuItem>
                     </Select>
                 </div>
-                <Box ml={2} sx={{display:'flex',flexDirection:'column',alignContent:'center',alignItems:'center'}}>
+                <Box ml={2} sx={{display:'flex',flexDirection:'column',alignContent:'center',alignItems:'center',maxWidth:'50%'}}>
                     <InputLabel >   Roll {Number(sliderValue)} items   </InputLabel>
                     <Slider sx={{minWidth:150}} valueLabelDisplay="auto" min={1} max={50} onChange={(event,newval)=>setSliderValue(newval)}></Slider>
                 </Box>

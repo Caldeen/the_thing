@@ -38,7 +38,7 @@ const Layout = ({ children }: any) => {
                         </Box>
                         <Box   component={'div'} sx={{display:['flex','flex','none','none','none','none']}}>
                             <IconButton  onClick={()=>setOpen(!open)}>
-                                <FormatListBulletedOutlinedIcon fontSize="large"/>
+                                <FormatListBulletedOutlinedIcon fontSize="medium"/>
                             </IconButton>
                             <List sx={{display:open?'flex':'none', flexDirection:'column', position:'absolute', top:50, right:0, zIndex:1000}}>
                                 <Paper>

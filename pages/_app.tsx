@@ -17,12 +17,16 @@ const darkTheme = createTheme({
           display:'flex',
           flexDirection:'column',
           alignItems:'stretch',
+          
         },
         html:{
           height:'100%',
+          
         },
         '#__next':{
+          
           height:'100%',
+          width:'100%',
           display:'flex',
           flexDirection:'column',
           alignItems:'stretch',
