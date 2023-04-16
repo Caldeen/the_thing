@@ -17,7 +17,7 @@ const LeftDrawer = () => {
                 <MenuList >
                     <ListItemButton href="/docs" >Overview</ListItemButton>
                     <ListItemButton href="/docs/account">Account </ListItemButton>
-                    <ListItemButton>Endpoints</ListItemButton>
+                    <ListItemButton href="/docs/quotes">Quotes</ListItemButton>
                     <ListItemButton>Errors</ListItemButton>
                 </MenuList>
             </>
@@ -26,9 +26,9 @@ const LeftDrawer = () => {
     return (
         <>
             <Drawer open={!open} onClose={()=>setOpen(false)} onClick={()=>setOpen(true)}
-            variant='permanent' anchor="left" sx={{width: 25,scrollbarWidth:'none',
+            variant='permanent' anchor="left" sx={{width: 20,scrollbarWidth:'none',
                 flexShrink:0,
-                [`& .MuiDrawer-paper`]: { width: 25, boxSizing: 'content-box',justifyContent:'center' }}}>
+                [`& .MuiDrawer-paper`]: { width: 20, boxSizing: 'content-box',justifyContent:'center' }}}>
                 <Toolbar />
                 <IconButton color="inherit"  onClick={()=>setOpen(!open)} sx={{justifySelf:'center'}}>
                     <ForwardIcon  fontSize="small" sx={{m:0,p:0}}/>

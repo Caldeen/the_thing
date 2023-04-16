@@ -35,6 +35,8 @@ const Layout = ({ children }: any) => {
                             <Button href="/docs" color="inherit">API Docs</Button>
                             <Divider orientation="vertical" flexItem sx={{ margin: 2,mt:0,mb:0 }}></Divider>
                             <Button href='/armory'  color='inherit'>Diablo 4 Aspects</Button>
+                            <Divider orientation="vertical" flexItem sx={{ margin: 2,mt:0,mb:0 }}></Divider>
+                            <Button href="/quotes" color="inherit">Quotes</Button>
                         </Box>
                         <Box   component={'div'} sx={{display:['flex','flex','none','none','none','none']}}>
                             <IconButton  onClick={()=>setOpen(!open)}>
@@ -45,6 +47,7 @@ const Layout = ({ children }: any) => {
                                     <ListItemButton href="/projects" >Projects</ListItemButton>
                                     <ListItemButton href="/docs">API Docs</ListItemButton>
                                     <ListItemButton href='/armory'>Diablo 4 Aspects</ListItemButton>
+                                    <ListItemButton href="/quotes">Quotes</ListItemButton>
                                 </Paper>
                             </List>
                         </Box>

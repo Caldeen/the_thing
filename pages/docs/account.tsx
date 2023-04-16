@@ -9,15 +9,14 @@ const Account = () => {
         <Box display={'flex'} >
             <LeftDrawer ></LeftDrawer>
             <Box sx={{ flexGrow: 1, p: 2 }}>
-                <Typography variant='h3'>Account</Typography>
-                <Typography id='User management' variant='h4'>User management</Typography>
+                <Typography variant='h4'>Account</Typography>
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     The API can be currently used to register a user or log in a user. Succesful
                     registration or login will return a JWT token in the header that can be used to access portions of API that are yet
                     to be implemented. The token is valid for 10 minutes.
                 </Typography>
                 <br></br>
-                <Typography variant='h5'>Register a user</Typography>
+                <Typography id='Register' variant='h5'>Register a user</Typography>
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     To register a user, send a POST request to the following endpoint:
                     <br></br>
@@ -59,7 +58,7 @@ const Account = () => {
 
                 </Typography>
                 <br></br>
-                <Typography variant='h5'>Log in a user</Typography>
+                <Typography id='Login' variant='h5'>Log in a user</Typography>
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     To log in a user, send a POST request to the following endpoint:
                     <br></br>
@@ -84,7 +83,7 @@ const Account = () => {
                     The response will be the same as for the registration endpoint.
                 </Typography>
             </Box>
-            <RightDrawer subjects={['User management']}></RightDrawer>
+            <RightDrawer subjects={['Register','Login']}></RightDrawer>
         </Box>
     )
 }
