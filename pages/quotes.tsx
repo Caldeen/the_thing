@@ -1,12 +1,14 @@
-import { Box, Button, Container, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography } from "@mui/material"
+import { Box, Button, Container, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography } from "@mui/material"
 import { log } from "console"
 import {useState } from "react"
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
 interface Quote {
     id: number,
     quote: string,
     author: string,
     tag: string
+    isFavourite: boolean
 }
 const Quotes = ({ quote,search }) => {
     const [page, setPage] = useState(0)
@@ -14,9 +16,15 @@ const Quotes = ({ quote,search }) => {
     const [quotesByAuthor, setQuotesByAuthor] = useState<Quote[]>([])
     const [author, setAuthor] = useState('')
     const [quotesToShow, setQuotesToShow] = useState<Quote[]>([])
+    const [favoriteQuotesId, setFavoriteQuotesId] = useState<Set<Number>>(new Set)
 
     const handleAuthorChange = (event) => {
         setAuthor(event.target.value)
+    }
+    const addToFavourites = (quote:Quote) => {
+        const token = localStorage.getItem('token')
+        setFavoriteQuotesId(favoriteQuotesId.add(quote.id))
+        
     }
     const handleRowsPerPageChange = (event) => {
         
@@ -34,6 +42,10 @@ const Quotes = ({ quote,search }) => {
             headers:{'Authorization':token}
         })
         const quotesByAuthor = await quotesByAuthorData.json()
+        quotesByAuthor.forEach((quote:Quote) => {
+            if(favoriteQuotesId.has(quote.id))
+               quote.isFavourite = true
+        })
         setQuotesByAuthor(quotesByAuthor)
         setQuotesToShow(quotesByAuthor.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage))
     }   
@@ -60,6 +72,7 @@ const Quotes = ({ quote,search }) => {
                             <TableCell>Quote</TableCell>
                             <TableCell align="right">Author</TableCell>
                             <TableCell align="right">Tag</TableCell>
+                            <TableCell align="center">Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -69,6 +82,14 @@ const Quotes = ({ quote,search }) => {
                                 <TableCell>{quote.quote}</TableCell>
                                 <TableCell align="right">{quote.author}</TableCell>
                                 <TableCell align="right">{quote.tag}</TableCell>
+                                <TableCell align="center" >
+                                    <Box sx={{display:'flex'}}>
+                                        <IconButton sx={{flex:1}} onClick={()=>addToFavourites(quote)} >
+                                            <FavoriteOutlinedIcon color={favoriteQuotesId.has(quote.id)?"error":"inherit"}/>
+                                        </IconButton>
+                                    </Box>
+
+                                </TableCell>
                             </TableRow>
                         ))}
 

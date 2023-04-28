@@ -48,10 +48,32 @@ const Quotes = () => {
                     The server will respond with a 200 OK status code, and a JSON object containing an array of 
                     quotes matched by the given author. Quote strucute is the same as in the previous example.
                 </Typography>
-                
-            </Box>
             
-            <RightDrawer subjects={['Quotes','Random quote','Quote by author']}></RightDrawer>
+                <br></br>
+                <Typography id='Quote by id' variant='h5'>Get a quote by its identifier</Typography>
+                <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
+                    To get a quote by its identifier, send a GET request to the following endpoint:
+                    <br></br>
+                    <i>https://springbootbackend.fly.dev/quotes/{`{id}`}</i>
+                    <br></br>
+                    The server will respond with a 200 OK status code, and a JSON object containing the quote
+                    matched by the given id. Quote strucute is the same as in the previous example.
+                </Typography>
+               
+               <br></br>
+                <Typography id='List of tags' variant='h5'>Get a list of all possible tags</Typography>
+                <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
+                    To get a list of possible tags, send a GET request to the following endpoint:
+                    <br></br>
+                    <i>https://springbootbackend.fly.dev/quotes/tags</i>
+                    <br></br>
+                    The server will respond with a 200 OK status code, and a JSON object containing an array of
+                    tags.
+                </Typography>
+            </Box>
+
+            
+            <RightDrawer subjects={['Quotes','Random quote','Quote by author','Quote by id','List of tags']}></RightDrawer>
 
         </Box>
     )
