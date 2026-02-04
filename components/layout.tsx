@@ -36,7 +36,9 @@ const Layout = ({ children }: any) => {
                             <Divider orientation="vertical" flexItem sx={{ margin: 2,mt:0,mb:0 }}></Divider>
                             <Button href='/armory'  color='inherit'>Diablo 4 Aspects</Button>
                             <Divider orientation="vertical" flexItem sx={{ margin: 2,mt:0,mb:0 }}></Divider>
-                            <Button href="/quotes" color="inherit">Quotes</Button>
+                            <Button href="/quotes" color="inherit">
+                                <span style={{ textDecoration: 'line-through' }}>Quotes</span>
+                            </Button>
                         </Box>
                         <Box   component={'div'} sx={{display:['flex','flex','none','none','none','none']}}>
                             <IconButton  onClick={()=>setOpen(!open)}>
