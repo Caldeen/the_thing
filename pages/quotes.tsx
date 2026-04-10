@@ -38,7 +38,7 @@ const Quotes = ({ quote,search }) => {
         const token = localStorage.getItem('token')
         console.log(author);
         
-        const quotesByAuthorData = await fetch(`https://springbootbackend.fly.dev/quotes/author/${author}`,{
+        const quotesByAuthorData = await fetch(`https://dotnet-rest-api.fly.dev/quotes/author/${author}`,{
             headers:{'Authorization':token}
         })
         const quotesByAuthor = await quotesByAuthorData.json()
@@ -112,8 +112,8 @@ const Quotes = ({ quote,search }) => {
 }
 
 Quotes.getInitialProps = async (ctx) => {
-    const randomQuoteData = await fetch('https://springbootbackend.fly.dev/quotes/random')
-    const search = await fetch('https://springbootbackend.fly.dev/quotes/author/asd')
+    const randomQuoteData = await fetch('https://dotnet-rest-api.fly.dev/quotes/random')
+    const search = await fetch('https://dotnet-rest-api.fly.dev/quotes/author/asd')
     const randomQuote = await randomQuoteData.json() as Quote
     const searchQuotes = await search.json() as Quote[]
     return { quote: randomQuote,search:searchQuotes }

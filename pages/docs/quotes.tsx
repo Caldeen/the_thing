@@ -17,7 +17,7 @@ const Quotes = () => {
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     To get a random quote, send a GET request to the following endpoint:
                     <br></br>
-                    <i>https://springbootbackend.fly.dev/quotes/random</i>
+                    <i>https://dotnet-rest-api.fly.dev/quotes/random</i>
                     <br></br>
                     The server will respond with a 200 OK status code, and a JSON object containing the following fields:
                 </Typography>
@@ -43,7 +43,7 @@ const Quotes = () => {
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     To get a quote by author, send a GET request to the following endpoint:
                     <br></br>
-                    <i>https://springbootbackend.fly.dev/quotes/author/{`{author}`}</i>
+                    <i>https://dotnet-rest-api.fly.dev/quotes/author/{`{author}`}</i>
                     <br></br>
                     The server will respond with a 200 OK status code, and a JSON object containing an array of 
                     quotes matched by the given author. Quote strucute is the same as in the previous example.
@@ -54,7 +54,7 @@ const Quotes = () => {
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     To get a quote by its identifier, send a GET request to the following endpoint:
                     <br></br>
-                    <i>https://springbootbackend.fly.dev/quotes/{`{id}`}</i>
+                    <i>https://dotnet-rest-api.fly.dev/quotes/{`{id}`}</i>
                     <br></br>
                     The server will respond with a 200 OK status code, and a JSON object containing the quote
                     matched by the given id. Quote strucute is the same as in the previous example.
@@ -65,7 +65,7 @@ const Quotes = () => {
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     To get a list of possible tags, send a GET request to the following endpoint:
                     <br></br>
-                    <i>https://springbootbackend.fly.dev/quotes/tags</i>
+                    <i>https://dotnet-rest-api.fly.dev/quotes/tags</i>
                     <br></br>
                     The server will respond with a 200 OK status code, and a JSON object containing an array of
                     tags.

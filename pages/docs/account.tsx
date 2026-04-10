@@ -20,7 +20,7 @@ const Account = () => {
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     To register a user, send a POST request to the following endpoint:
                     <br></br>
-                    <i>https://springbootbackend.fly.dev/register</i>
+                    <i>https://dotnet-rest-api.fly.dev/register</i>
                     <br></br>
                     The request body should contain the following JSON object:
                 </Typography>
@@ -62,7 +62,7 @@ const Account = () => {
                 <Typography variant='body1' sx={{ overflowWrap: 'anywhere' }} >
                     To log in a user, send a POST request to the following endpoint:
                     <br></br>
-                    <i>https://springbootbackend.fly.dev/login</i>
+                    <i>https://dotnet-rest-api.fly.dev/login</i>
                     <br></br>
                     The request body should contain the following JSON object:
                 </Typography>

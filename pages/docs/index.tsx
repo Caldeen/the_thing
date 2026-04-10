@@ -11,7 +11,7 @@ const Docs = () => {
                 <Typography variant='body1' sx={{ overflowWrap:'anywhere' }} >These docs pages serve as a skeleton of
                     what actual docs pages could look like.
                     It is also a very simple documentation of a real API existing at
-                    <i> https://springbootbackend.fly.dev</i>.</Typography>
+                    <i> https://dotnet-rest-api.fly.dev</i>.</Typography>
             </Box>
             <RightDrawer subjects={['Overview']}></RightDrawer>
         </Box>

@@ -6,7 +6,7 @@ const RegisterComponent = () => {
     const [passwordVal, setPasswordVal] = useState('')
     const onLoginSubmit = async (event: FormEvent) => {
         event.preventDefault()
-        const resp = await fetch('https://springbootbackend.fly.dev/register',
+        const resp = await fetch('https://dotnet-rest-api.fly.dev/register',
             {method:'POST',body:JSON.stringify({login:loginVal,password:passwordVal}),headers:{'Content-Type':'application/json'}})
         const data = await resp.json()
         localStorage.setItem('token',resp.headers.get('authorization') as string)

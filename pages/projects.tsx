@@ -15,10 +15,18 @@ const Projects = () => {
                 </li>
                 <br></br>
                 <li>
-                    <Typography sx={{wordWrap:'break-word'}}>A simple REST API built using <b>Java Spring Boot</b> hosted on <i>fly.io </i>
+                    <Typography sx={{wordWrap:'break-word'}}>A simple REST API built using <b>Java Spring Boot</b> containing user info and quotes utilizing 
+                    <b> SQLite </b>as a database
+                        <Link href='https://dotnet-rest-api.fly.dev/'> https://dotnet-rest-api.fly.dev/ </Link> using <b>Docker</b> source code at <Link href='https://github.com/Caldeen/spring_boot_api'>https://github.com/Caldeen/spring_boot_api 
+                        </Link>. Simple docs at <Link href='https://nextfrontend.fly.dev/docs'>https://nextfrontend.fly.dev/docs</Link>. 
+                    </Typography>
+                </li>
+                <br></br>
+                <li>
+                    <Typography sx={{wordWrap:'break-word'}}>A simple REST API built using <b>Dotnet </b> hosted on <i>fly.io </i>
                     containing user info and quotes utilizing 
                     <b> SQLite </b>as a database and fly volumes for persistent storage at
-                        <Link href='https://springbootbackend.fly.dev/'> https://springbootbackend.fly.dev/ </Link> using <b>Docker</b> source code at <Link href='https://github.com/Caldeen/spring_boot_api'>https://github.com/Caldeen/spring_boot_api 
+                        <Link href='https://dotnet-rest-api.fly.dev/'> https://dotnet-rest-api.fly.dev/ </Link> using <b>Docker</b> source code at <Link href='https://github.com/Caldeen/dotnet_rest_api'>https://github.com/Caldeen/dotnet_rest_api
                         </Link>. Simple docs at <Link href='https://nextfrontend.fly.dev/docs'>https://nextfrontend.fly.dev/docs</Link>. 
                     </Typography>
                 </li>
