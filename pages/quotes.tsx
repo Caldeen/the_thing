@@ -5,12 +5,12 @@ import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
 interface Quote {
     id: number,
-    quote: string,
+    text: string,
     author: string,
     tag: string
     isFavourite: boolean
 }
-const Quotes = ({ quote,search }) => {
+const Quotes = ({ quote }) => {
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(10)
     const [quotesByAuthor, setQuotesByAuthor] = useState<Quote[]>([])
@@ -56,7 +56,7 @@ const Quotes = ({ quote,search }) => {
     return (
         <Container >
 
-            <Typography> {quote.quote} {quote.quote ? ' - ' : null} <i>{quote.author}</i></Typography>
+            <Typography> {quote.text} {quote.text ? ' - ' : null} <i>{quote.author}</i></Typography>
             <br></br>
             <Typography>Find quotes by author</Typography>
             <Box component={'div'}>
@@ -79,7 +79,7 @@ const Quotes = ({ quote,search }) => {
                         {quotesToShow.map((quote) => (
                             <TableRow key={quote.id}>
                                 <TableCell>{quote.id}</TableCell>
-                                <TableCell>{quote.quote}</TableCell>
+                                <TableCell>{quote.text}</TableCell>
                                 <TableCell align="right">{quote.author}</TableCell>
                                 <TableCell align="right">{quote.tag}</TableCell>
                                 <TableCell align="center" >
@@ -113,9 +113,7 @@ const Quotes = ({ quote,search }) => {
 
 Quotes.getInitialProps = async (ctx) => {
     const randomQuoteData = await fetch('https://dotnet-rest-api.fly.dev/quotes/random')
-    const search = await fetch('https://dotnet-rest-api.fly.dev/quotes/author/asd')
     const randomQuote = await randomQuoteData.json() as Quote
-    const searchQuotes = await search.json() as Quote[]
-    return { quote: randomQuote,search:searchQuotes }
+    return { quote: randomQuote }
 }
 export default Quotes
