@@ -20,9 +20,14 @@
     "bcrypt": "^5.1.0",
     "eslint": "8.36.0",
     "eslint-config-next": "13.5.11",
+    "express": "^5.2.1",
+    "express-basic-auth": "^1.2.1",
+    "express-rate-limit": "^8.3.2",
+    "http-proxy-middleware": "^3.0.5",
     "next": "13.5.11",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "socks-proxy-agent": "^10.0.0",
     "typescript": "5.0.2"
   },
   "devDependencies": {
