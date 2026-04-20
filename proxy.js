@@ -4,15 +4,25 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const { SocksProxyAgent } = require('socks-proxy-agent');
 const rateLimit = require('express-rate-limit');
 
+
 const app = express();
-app.set('trust proxy',1);
+
+
+app.set('trust proxy',2);
 app.disable('x-powered-by');
+
 // 1. ZABBIX SECURITY 
 const protectRoute = basicAuth({
-    users: { 'tmpuser': 'TempPasswordasdf5MjATA5KUMDGiLEphP11C' }, // CHANGE THIS
+    users: { 'guestuser': 'guestpassword' }, // CHANGE THIS
     challenge: true,
     realm: 'Homelab Access'
 });
+const optionsBypass =(req, res, next) => {
+    if(req.method === 'OPTIONS') {
+        return next();
+    }
+    return protectRoute(req, res, next);
+}
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 10, // Limit each IP to 10 login attempts per window
@@ -25,6 +35,24 @@ const loginLimiter = rateLimit({
 app.get('/ip', (req, res) => {
     res.send(req.ip);
 });
+
+app.get('/lab-statuscheck', async (req, res) => {
+    try {
+        const resp = await fetch('http://127.0.0.1:8080/zabbix/index.php',{
+            method: 'OPTIONS',
+            signal: AbortSignal.timeout(1000)
+        })
+        if(resp.status === 200) {
+            res.status(200).json({ status: 'Online' })
+        } else {
+            res.status(500).json({ status: 'Offline' })
+        }
+    } catch (error) {
+        console.log('error')
+        console.error(error)
+        res.status(500).json({ status: 'Offline' })
+    }
+});
 // Login Notification
 app.post('/zabbix/index.php', loginLimiter, (req, res, next) => {
     next();
@@ -36,7 +64,7 @@ const socksAgent = new SocksProxyAgent('socks5://127.0.0.1:25566');
 
 
 // 2. HOMELAB ROUTE
-app.use('/zabbix', protectRoute, createProxyMiddleware({
+app.use('/zabbix', optionsBypass, createProxyMiddleware({
     target: `http://${process.env.ZABBIX_INTERNAL_IP}/zabbix`, // Replace with your Homelab IP
     agent: socksAgent,
     changeOrigin: true,
@@ -60,7 +88,7 @@ app.use('/zabbix', protectRoute, createProxyMiddleware({
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         embeds: [{
-                            title: "Login Attempt Detected",
+                            title: "Login Attempt Detected to Zabbix Frontend",
                             color: 15158332, // Red color
                             fields: [
                                 { name: "IP Address", value: ip, inline: true },

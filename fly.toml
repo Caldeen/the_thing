@@ -6,6 +6,8 @@
 app = 'nextfrontend'
 primary_region = 'ams'
 
+swap_size_mb = 256
+
 [build]
 
 [http_service]
