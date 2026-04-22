@@ -15,4 +15,4 @@ HOSTNAME=127.0.0.1 PORT=3000 node server.js &
 sleep 2
 echo "Starting Proxy Gateway..."
 # Start our Gateway to handle incoming traffic on port 8080
-exec node proxy.js
+NODE_PATH=/app/proxy-node_modules exec node proxy.js

@@ -62,8 +62,8 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# OPTIMIZATION: Merge our proxy dependencies into the app's node_modules instantly with correct ownership
-COPY --from=proxy-deps --chown=nextjs:nodejs /proxy/node_modules ./node_modules
+# Keep proxy dependencies separate so we do not overwrite the standalone app dependencies.
+COPY --from=proxy-deps --chown=nextjs:nodejs /proxy/node_modules ./proxy-node_modules
 
 # Copy scripts with correct ownership
 COPY --chown=nextjs:nodejs proxy.js ./

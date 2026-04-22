@@ -11,18 +11,18 @@ const app = express();
 app.set('trust proxy',2);
 app.disable('x-powered-by');
 
-// 1. ZABBIX SECURITY 
-const protectRoute = basicAuth({
-    users: { 'guestuser': 'guestpassword' }, // CHANGE THIS
-    challenge: true,
-    realm: 'Homelab Access'
-});
-const optionsBypass =(req, res, next) => {
-    if(req.method === 'OPTIONS') {
-        return next();
-    }
-    return protectRoute(req, res, next);
-}
+// // 1. ZABBIX SECURITY 
+// const protectRoute = basicAuth({
+//     users: { 'guestuser': 'guestpassword' }, // CHANGE THIS
+//     challenge: true,
+//     realm: 'Homelab Access'
+// });
+// const optionsBypass =(req, res, next) => {
+//     if(req.method === 'OPTIONS') {
+//         return next();
+//     }
+//     return protectRoute(req, res, next);
+// }
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 10, // Limit each IP to 10 login attempts per window
@@ -64,7 +64,7 @@ const socksAgent = new SocksProxyAgent('socks5://127.0.0.1:25566');
 
 
 // 2. HOMELAB ROUTE
-app.use('/zabbix', optionsBypass, createProxyMiddleware({
+app.use('/zabbix', createProxyMiddleware({
     target: `http://${process.env.ZABBIX_INTERNAL_IP}/zabbix`, // Replace with your Homelab IP
     agent: socksAgent,
     changeOrigin: true,

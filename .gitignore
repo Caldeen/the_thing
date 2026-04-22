@@ -35,3 +35,4 @@ next-env.d.ts
 
 # custom
 /ideas.txt
+/dev_scripts
