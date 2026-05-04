@@ -18,8 +18,15 @@ export const homelabServices: LabService[] = [
     logoAlt: 'Zabbix logo',
   },
   {
+    name: 'Jenkins',
+    description: 'Automated CI/CD pipeline.',
+    href: 'https://nextfrontend.fly.dev/jenkins',
+    logoSrc: '/jenkins2.png',
+    logoAlt: 'Jenkins logo',
+  },
+  {
     name: 'Reserved',
     description: '---',
-    initials: '----',
+    initials: 'RES',
   },
 ]

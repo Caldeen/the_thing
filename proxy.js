@@ -108,7 +108,33 @@ app.use('/zabbix', createProxyMiddleware({
         return path;
     }
 }));
+app.use('/jenkins', createProxyMiddleware({
+    target: `http://${process.env.JENKINS_INTERNAL_IP}:8080/jenkins/`, // Replace with your Homelab IP
+    agent: socksAgent,
+    changeOrigin: true,
+    ws: true,
+    on: {
+        proxyRes: (proxyRes, req, res) => {
+            // Remove the headers coming FROM Zabbix
+            delete proxyRes.headers['x-powered-by'];
+            delete proxyRes.headers['server'];
+            delete proxyRes.headers['X-Powered-By'];
+            delete proxyRes.headers['Server'];
+        }
+    },
+    pathRewrite: (path, req) => {
 
+        // EXACT MATCH: Force it to the root index.php
+        if (path === '/jenkins' || path === '/jenkins/') {
+
+            return '/jenkins';
+        }
+        return path;
+    },error: (err, req, res) => {
+        console.error('Proxy error:', err);
+        res.status(500).json({ error: 'Proxy error' });
+    }
+}));
 // 3. NEXT.JS PUBLIC ROUTE (Catch-All)
 // Send everything else to the local Next.js standalone server
 app.use('/', createProxyMiddleware({
